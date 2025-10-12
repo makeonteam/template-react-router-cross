@@ -1,3 +1,6 @@
+import "./root.css";
+
+import type { Route } from "./+types/root";
 import {
   isRouteErrorResponse,
   Links,
@@ -6,9 +9,6 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-
-import type { Route } from "./+types/root";
-import "./app.css";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -23,6 +23,8 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+// root layout for the entire app
+// children is the content
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -32,7 +34,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="min-h-dvh w-dvw overflow-hidden">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -41,7 +43,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function App() {
+// the root-page for children in layout
+export default function Page(): React.ReactElement {
   return <Outlet />;
 }
 
