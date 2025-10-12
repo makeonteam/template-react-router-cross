@@ -1,9 +1,7 @@
 import type { Route } from "./+types/page";
 
 export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "Boards" },
-  ];
+  return [{ title: "Boards" }];
 }
 
 // the page for outlet
