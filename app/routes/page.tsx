@@ -16,10 +16,8 @@ export default function Page(): React.ReactElement {
   return (
     <div className="mt-safe mb-safe min-h-svh w-full">
       <div className="flex flex-col items-center gap-2 p-2">
-        <h1 className="text-xl font-bold">Cross</h1>
-        <p className="text-md">
-          Open Cards {"=>"} Notes, Boards, Snips, Tasks, Chats
-        </p>
+        <h1 className="text-xl font-bold">Welcome to Cross</h1>
+        <p className="text-md">Build desktop & mobile apps with web tech</p>
       </div>
     </div>
   );
