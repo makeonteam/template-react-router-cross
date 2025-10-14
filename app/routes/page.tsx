@@ -1,4 +1,5 @@
 import type { Route } from "./+types/page";
+import ThemeSwitcher from "@components/ThemeSwitcher";
 
 // you can change metadata for each page
 export function meta({}: Route.MetaArgs) {
@@ -18,6 +19,7 @@ export default function Page(): React.ReactElement {
       <div className="flex flex-col items-center gap-2 p-2">
         <h1 className="text-xl font-bold">Welcome to Cross</h1>
         <p className="text-md">Build desktop & mobile apps with web tech</p>
+        <ThemeSwitcher />
       </div>
     </div>
   );

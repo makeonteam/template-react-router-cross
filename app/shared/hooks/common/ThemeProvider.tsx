@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "system" | "light" | "dark" | "e-ink";
+export type Theme = "system" | "light" | "dark" | "e-ink";
 type ResolvedTheme = Exclude<Theme, "system">;
 
 interface ThemeContextType {
@@ -26,13 +26,18 @@ interface ThemeProviderProps {
 
 function ThemeProvider({ children, themeKey = "theme" }: ThemeProviderProps) {
   const [theme, setThemeState] = useState<Theme>(() => {
-    const storedTheme = localStorage.getItem(themeKey);
-    return (storedTheme as Theme) || "system";
+    if (typeof window !== "undefined") {
+      const storedTheme = localStorage.getItem(themeKey);
+      return (storedTheme as Theme) || "system";
+    }
+    return "system";
   });
 
   const setTheme = (theme: Theme) => {
     setThemeState(theme);
-    localStorage.setItem(themeKey, theme);
+    if (typeof window !== "undefined") {
+      localStorage.setItem(themeKey, theme);
+    }
   };
 
   useEffect(() => {
