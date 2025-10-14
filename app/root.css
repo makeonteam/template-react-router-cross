@@ -4,6 +4,16 @@
 /* can switch theme manually, with data-theme not class */
 @custom-variant dark (html[data-theme="dark"] &);
 
+/* set default UI elements theme for browser */
+html {
+  /* default is light when data-theme!="dark" */
+  color-scheme: light;
+  /* switch to dark when data-theme="dark" */
+  &[data-theme="dark"] {
+    color-scheme: dark;
+  }
+}
+
 /* spa app get full height */
 :root,
 html,
@@ -121,7 +131,7 @@ body {
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* your custom theme */
+/* custom theme */
 :root {
   --bg-lighter: #fafafa;
   --bg-normal: #f5f5f5;
@@ -149,17 +159,6 @@ body {
   --font-sans:
     "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Noto Color Emoji";
-}
-
-/* set default UI elements theme for browser */
-html {
-  /* default is light when data-theme!="dark" */
-  color-scheme: light;
-
-  /* switch to dark when data-theme="dark" */
-  &[data-theme="dark"] {
-    color-scheme: dark;
-  }
 }
 
 @layer base {
