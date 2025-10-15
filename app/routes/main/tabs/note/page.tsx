@@ -7,7 +7,7 @@ export function meta(_: Route.MetaArgs) {
 }
 
 // the page for outlet
-export default function Page() {
+export default function Page(): React.ReactElement {
   const params = useParams();
 
   return (

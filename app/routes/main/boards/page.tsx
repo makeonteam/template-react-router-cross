@@ -6,7 +6,7 @@ export function meta(_: Route.MetaArgs) {
 }
 
 // the page for outlet
-export default function Page() {
+export default function Page(): React.ReactElement {
   return (
     <div className="flex h-full w-full flex-col">
       <AppTopbar>
