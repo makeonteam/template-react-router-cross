@@ -21,14 +21,14 @@ interface BackwardAndForwardProps {
   variant?: "normal" | "smart";
 }
 
-function BackwardAndForward({ variant = "normal" }: BackwardAndForwardProps) {
+function BackwardAndForward({ variant = "normal", ...props }: React.ComponentProps<"div"> & BackwardAndForwardProps) {
   const { open } = useSidebar();
   const navigate = useNavigate();
 
   // normal to show (put it in sidebar), smart to hide when sidebar is open (put it in main page)
   if (variant === "normal" || (variant === "smart" && !open)) {
     return (
-      <div className="flex gap-[1px]">
+      <div className="flex gap-[1px]" {...props}>
         <Button variant="ghost" size="icon-sm" onClick={() => navigate(-1)}>
           <ArrowLeftIcon className="size-4.5" />
         </Button>

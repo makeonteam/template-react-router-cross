@@ -4,19 +4,6 @@ import type { Route } from "./+types/root";
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import { ThemeProvider } from "@hooks/common/ThemeProvider";
 
-export const links: Route.LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
-];
-
 // root layout for the entire app
 // children is the content
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -29,7 +16,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
         <script src="/init-theme.js" defer></script>
       </head>
-      <body className="min-h-dvh w-dvw overflow-hidden">
+      <body className="min-h-dvh w-dvw overflow-hidden antialiased">
         <ThemeProvider>{children}</ThemeProvider>
         <ScrollRestoration />
         <Scripts />
