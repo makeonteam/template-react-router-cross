@@ -7,6 +7,7 @@ export default [
   layout("routes/main/layout.tsx", [
     route("boards", "routes/main/boards/page.tsx"),
     route("notes", "routes/main/notes/page.tsx"),
+    route("note/:id", "routes/main/tabs/note/page.tsx"),
   ]),
   route("home", "routes/home/page.tsx"),
 ] satisfies RouteConfig;

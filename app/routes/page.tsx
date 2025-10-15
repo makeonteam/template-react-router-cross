@@ -1,8 +1,11 @@
 import type { Route } from "./+types/page";
+import { Link } from "react-router";
+
+import { Button } from "@components/shadcn/ui/button";
 import ThemeSwitcher from "@components/ThemeSwitcher";
 
 // you can change metadata for each page
-export function meta({}: Route.MetaArgs) {
+export function meta(_: Route.MetaArgs) {
   return [
     { title: "Cross" },
     {
@@ -20,6 +23,12 @@ export default function Page(): React.ReactElement {
         <h1 className="text-xl font-bold">Welcome to Cross</h1>
         <p className="text-md">Build desktop & mobile apps with web tech</p>
         <ThemeSwitcher />
+        <Button asChild>
+          <Link to="/boards">Goto Main app {"=>"} /boards</Link>
+        </Button>
+        <Button asChild>
+          <Link to="/home">Goto Home page {"=>"} /home</Link>
+        </Button>
       </div>
     </div>
   );

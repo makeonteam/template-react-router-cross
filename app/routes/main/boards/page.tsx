@@ -1,6 +1,6 @@
 import type { Route } from "./+types/page";
 
-export function meta({}: Route.MetaArgs) {
+export function meta(_: Route.MetaArgs) {
   return [{ title: "Boards" }];
 }
 
