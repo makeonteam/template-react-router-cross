@@ -1,4 +1,5 @@
 import type { Route } from "./+types/page";
+import { AppTopbar } from "@components/common/AppTopbar";
 
 export function meta(_: Route.MetaArgs) {
   return [{ title: "Notes" }];
@@ -7,8 +8,11 @@ export function meta(_: Route.MetaArgs) {
 // the page for outlet
 export default function Page() {
   return (
-    <div className="mt-safe mb-safe min-h-svh w-full">
-      <div className="flex flex-col items-center gap-2 p-2">
+    <div className="flex h-full w-full flex-col">
+      <AppTopbar>
+        <span>Notes</span>
+      </AppTopbar>
+      <div className="flex h-full w-full flex-col gap-2 p-2">
         <h1 className="text-xl font-bold">Notes</h1>
       </div>
     </div>
