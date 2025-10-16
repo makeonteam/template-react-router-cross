@@ -1,7 +1,7 @@
 import "./root.css";
 
 import type { Route } from "./+types/root";
-import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import { Meta, Links, Scripts, ScrollRestoration, Outlet, isRouteErrorResponse } from "react-router";
 import { ThemeProvider } from "@hooks/common/ThemeProvider";
 
 // root layout for the entire app

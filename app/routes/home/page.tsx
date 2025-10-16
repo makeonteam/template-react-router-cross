@@ -1,6 +1,6 @@
 import type { Route } from "./+types/page";
 
-export function meta({}: Route.MetaArgs) {
+export function meta(_: Route.MetaArgs) {
   return [{ title: "Home" }];
 }
 
@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <div className="mt-safe mb-safe min-h-svh w-full">
       <div className="flex flex-col items-center gap-2 p-2">
-        <h1 className="text-xl font-bold">Home</h1>
+        <h1 className="text-xl font-bold">Home page</h1>
       </div>
     </div>
   );

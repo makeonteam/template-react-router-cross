@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { AppTopbar } from "@components/common/AppTopbar";
 
 export function meta(_: Route.MetaArgs) {
-  return [{ title: "Notes" }];
+  return [{ title: "Note Tab" }];
 }
 
 // the page for outlet
