@@ -1,11 +1,13 @@
 {
   "common": {
     "sidebar": {
+      "apps": "Apps",
       "boards": "Boards",
-      "notes": "Notes"
+      "notes": "Notes",
+      "tabs": "Tabs"
     },
     "action": {
-      "toogle-sidebar": "Toggle sidebar",
+      "toggle-sidebar": "Toggle sidebar",
       "backward": "Backward",
       "forward": "Forward",
       "search": "Search",
@@ -18,7 +20,7 @@
       "system": "System",
       "light": "Light",
       "dark": "Dark",
-      "toogle-language": "Toggle language",
+      "toggle-language": "Toggle language",
       "signout": "Signout",
       "close": "Close"
     }

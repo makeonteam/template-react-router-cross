@@ -1,15 +1,7 @@
-"use client";
 import { useState } from "react";
 import { Link } from "react-router";
-import {
-  ChevronDownIcon,
-  EllipsisIcon,
-  SettingsIcon,
-  ImportIcon,
-  MapIcon,
-  LayoutGridIcon,
-  FileIcon,
-} from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { ChevronDownIcon, EllipsisIcon, SettingsIcon, ImportIcon, FileIcon } from "lucide-react";
 
 import {
   Sidebar,
@@ -36,8 +28,12 @@ import { Button } from "@components/shadcn/ui/button";
 
 import SidebarToggler from "@components/common/SidebarToggler";
 import { BackwardAndForward } from "@components/common/AppTopbar";
+import LanguageSwitcher from "@components/common/LanguageSwitcher";
+import { sidebarAppsConfigs } from "@shared/constants/configs/main";
 
 function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
+  const { t: tMain } = useTranslation("main");
+  const sidebarApps = sidebarAppsConfigs();
   const [workspace, setWorkspace] = useState("West Wong");
   const mockTabs = [...Array(40)];
 
@@ -74,28 +70,25 @@ function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
           </SidebarMenuItem>
         </SidebarMenu>
         <SidebarGroup className="p-0">
-          <SidebarGroupLabel>Apps</SidebarGroupLabel>
+          <SidebarGroupLabel>{tMain("common.sidebar.apps")}</SidebarGroupLabel>
           <SidebarGroupAction className="top-1.5 right-1">
             <EllipsisIcon /> <span className="sr-only">Setting</span>
           </SidebarGroupAction>
           <SidebarGroupContent>
             <SidebarMenu className="gap-[1px]">
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={window.location.pathname === "/boards"}>
-                  <Link to="/boards">
-                    <MapIcon />
-                    Boards
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={window.location.pathname === "/notes"}>
-                  <Link to="/notes">
-                    <LayoutGridIcon />
-                    Notes
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              {sidebarApps.map((app) => {
+                const Icon = app.icon;
+                return (
+                  <SidebarMenuItem key={app.url}>
+                    <SidebarMenuButton asChild isActive={window.location.pathname === app.url}>
+                      <Link to={app.url}>
+                        <Icon />
+                        {app.label}
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
@@ -103,7 +96,7 @@ function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent className="gap-0">
         <SidebarGroup className="h-full p-0">
           <div className="sticky px-2 pt-2">
-            <SidebarGroupLabel>Tabs</SidebarGroupLabel>
+            <SidebarGroupLabel>{tMain("common.sidebar.tabs")}</SidebarGroupLabel>
             <SidebarGroupAction className="top-3.5 right-3">
               <EllipsisIcon /> <span className="sr-only">Setting</span>
             </SidebarGroupAction>
@@ -133,11 +126,14 @@ function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
       <SidebarFooter className="mb-safe">
         <SidebarMenu>
           <SidebarMenuItem className="flex justify-between">
+            <div className="flex items-center gap-2">
+              <Button variant="ghost" size="icon-sm">
+                <SettingsIcon className="size-4.5" /> <span className="sr-only">{tMain("common.action.settings")}</span>
+              </Button>
+              <LanguageSwitcher />
+            </div>
             <Button variant="ghost" size="icon-sm">
-              <SettingsIcon className="size-4.5" />
-            </Button>
-            <Button variant="ghost" size="icon-sm">
-              <ImportIcon className="size-4.5" />
+              <ImportIcon className="size-4.5" /> <span className="sr-only">{tMain("common.action.import")}</span>
             </Button>
           </SidebarMenuItem>
         </SidebarMenu>

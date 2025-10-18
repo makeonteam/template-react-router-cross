@@ -8,7 +8,7 @@ import SidebarToggler from "@components/common/SidebarToggler";
 
 function AppTopbar({ children, ...props }: React.ComponentProps<"div">) {
   return (
-    <div className="flex h-12 w-full items-center gap-2 px-2 select-none" {...props}>
+    <div className="flex h-12 w-full shrink-0 items-center gap-2 px-2 select-none" {...props}>
       <SidebarToggler variant="smart" />
       <BackwardAndForward variant="smart" />
       {children}
@@ -21,8 +21,8 @@ interface BackwardAndForwardProps {
 }
 
 function BackwardAndForward({ variant = "normal", ...props }: React.ComponentProps<"div"> & BackwardAndForwardProps) {
-  const { open } = useSidebar();
   const { t: tMain } = useTranslation("main");
+  const { open } = useSidebar();
   const navigate = useNavigate();
 
   // normal to show (put it in sidebar), smart to hide when sidebar is open (put it in main page)
