@@ -1,0 +1,26 @@
+{
+  "common": {
+    "sidebar": {
+      "boards": "Boards",
+      "notes": "Notes"
+    },
+    "action": {
+      "toogle-sidebar": "Toggle sidebar",
+      "backward": "Backward",
+      "forward": "Forward",
+      "search": "Search",
+      "settings": "Settings",
+      "import": "Import"
+    },
+    "settings": {
+      "title": "Settings",
+      "theme": "Theme",
+      "system": "System",
+      "light": "Light",
+      "dark": "Dark",
+      "toogle-language": "Toggle language",
+      "signout": "Signout",
+      "close": "Close"
+    }
+  }
+}

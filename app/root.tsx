@@ -1,4 +1,5 @@
 import "./root.css";
+import "@utils/init/i18n"; // initialize i18n
 
 import type { Route } from "./+types/root";
 import { Meta, Links, Scripts, ScrollRestoration, Outlet, isRouteErrorResponse } from "react-router";

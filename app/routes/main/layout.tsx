@@ -1,4 +1,5 @@
 import { Outlet } from "react-router";
+
 import { SidebarProvider } from "@components/shadcn/ui/sidebar";
 import AppSidebar from "@components/common/AppSidebar";
 
