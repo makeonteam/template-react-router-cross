@@ -9,18 +9,29 @@ import {
 } from "@components/shadcn/ui/dropdown-menu";
 import { Button } from "@components/shadcn/ui/button";
 
-const languages = [
+import { languageKey } from "@utils/init/i18n";
+
+const LANGUAGES = [
+  { code: "system", label: "System" },
   { code: "en", label: "English" },
-  { code: "zh-CN", label: "中文" },
+  { code: "zh", label: "中文" },
+  { code: "zh-Hant", label: "繁體中文" },
   // add more languages here
 ];
 
 export default function LanguageSwitcher() {
   const { i18n } = useTranslation();
   const { t: tMain } = useTranslation("main");
+  const storedLang = localStorage.getItem(languageKey) || "system";
 
   const handleChangeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang);
+    if (lang === "system") {
+      localStorage.setItem(languageKey, "system");
+      i18n.changeLanguage(navigator.language);
+    } else {
+      localStorage.setItem(languageKey, lang);
+      i18n.changeLanguage(lang);
+    }
   };
 
   return (
@@ -32,11 +43,11 @@ export default function LanguageSwitcher() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="flex flex-col gap-[1px]">
-        {languages.map((lang) => (
+        {LANGUAGES.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
             onClick={() => handleChangeLanguage(lang.code)}
-            className={lang.code === i18n.language ? "bg-accent" : ""}
+            className={lang.code === storedLang ? "bg-accent" : ""}
           >
             {lang.label}
           </DropdownMenuItem>
