@@ -19,8 +19,8 @@ export default function LanguageSwitcher() {
   const { i18n } = useTranslation();
   const { t: tMain } = useTranslation("main");
 
-  const handleChangeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+  const handleChangeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang);
   };
 
   return (

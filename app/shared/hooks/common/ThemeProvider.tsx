@@ -5,8 +5,8 @@ type ResolvedTheme = Exclude<Theme, "system">;
 
 interface ThemeContextType {
   theme: Theme;
-  resolvedTheme?: ResolvedTheme;
   setTheme: (theme: Theme) => void;
+  resolvedTheme?: ResolvedTheme;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);

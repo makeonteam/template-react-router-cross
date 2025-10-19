@@ -1,8 +1,5 @@
 import { useTranslation } from "react-i18next";
-import {
-  Map as BoardsIcon,
-  LayoutGridIcon as NotesIcon,
-} from "lucide-react";
+import { Map as BoardsIcon, LayoutGridIcon as NotesIcon } from "lucide-react";
 
 // sidebar menus
 function sidebarAppsConfigs() {
