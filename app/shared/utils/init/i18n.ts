@@ -4,6 +4,16 @@ import backend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
 
 export const LANGUAGE_KEY = "language";
+export const convertDetectedLanguage = (lang: string) => {
+  const LANGUAGE_MAP: Record<string, string> = {
+    "zh-HK": "zh-Hant",
+    "zh-TW": "zh-Hant",
+  };
+  // apply map first
+  if (LANGUAGE_MAP[lang]) return LANGUAGE_MAP[lang];
+  // simplify language code: en-AU -> en
+  return lang.split("-")[0];
+};
 
 i18n
   .use(LanguageDetector) // detect user language
@@ -27,14 +37,8 @@ i18n
             return storedLang;
           }
         }
-        const LANGUAGE_MAP: Record<string, string> = {
-          "zh-HK": "zh-Hant",
-          "zh-TW": "zh-Hant",
-        };
-        // apply map first
-        if (LANGUAGE_MAP[lang]) return LANGUAGE_MAP[lang];
-        // simplify language code: en-AU -> en
-        return lang.split("-")[0];
+
+        return convertDetectedLanguage(lang);
       },
     },
 

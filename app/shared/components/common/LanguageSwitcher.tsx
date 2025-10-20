@@ -8,8 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@components/shadcn/ui/dropdown-menu";
 import { Button } from "@components/shadcn/ui/button";
-
-import { LANGUAGE_KEY } from "@utils/init/i18n";
+import { convertDetectedLanguage, LANGUAGE_KEY } from "@utils/init/i18n";
 
 const LANGUAGES = [
   { code: "system", label: "System" },
@@ -26,12 +25,11 @@ export default function LanguageSwitcher() {
 
   const handleChangeLanguage = (lang: string) => {
     if (lang === "system") {
-      localStorage.setItem(LANGUAGE_KEY, "system");
-      i18n.changeLanguage(navigator.language);
+      i18n.changeLanguage(convertDetectedLanguage(navigator.language));
     } else {
-      localStorage.setItem(LANGUAGE_KEY, lang);
       i18n.changeLanguage(lang);
     }
+    localStorage.setItem(LANGUAGE_KEY, lang);
   };
 
   return (
