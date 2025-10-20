@@ -9,7 +9,7 @@ import {
 } from "@components/shadcn/ui/dropdown-menu";
 import { Button } from "@components/shadcn/ui/button";
 
-import { languageKey } from "@utils/init/i18n";
+import { LANGUAGE_KEY } from "@utils/init/i18n";
 
 const LANGUAGES = [
   { code: "system", label: "System" },
@@ -22,14 +22,14 @@ const LANGUAGES = [
 export default function LanguageSwitcher() {
   const { i18n } = useTranslation();
   const { t: tMain } = useTranslation("main");
-  const storedLang = localStorage.getItem(languageKey) || "system";
+  const storedLang = localStorage.getItem(LANGUAGE_KEY) || "system";
 
   const handleChangeLanguage = (lang: string) => {
     if (lang === "system") {
-      localStorage.setItem(languageKey, "system");
+      localStorage.setItem(LANGUAGE_KEY, "system");
       i18n.changeLanguage(navigator.language);
     } else {
-      localStorage.setItem(languageKey, lang);
+      localStorage.setItem(LANGUAGE_KEY, lang);
       i18n.changeLanguage(lang);
     }
   };
@@ -38,7 +38,7 @@ export default function LanguageSwitcher() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon-sm">
-          <GlobeIcon className="size-[18px]" />
+          <GlobeIcon className="size-[17px]" />
           <span className="sr-only">{tMain("common.settings.toggle-language")}</span>
         </Button>
       </DropdownMenuTrigger>

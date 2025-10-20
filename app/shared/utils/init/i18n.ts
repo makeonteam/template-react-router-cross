@@ -3,7 +3,7 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import backend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
 
-export const languageKey = "language";
+export const LANGUAGE_KEY = "language";
 
 i18n
   .use(LanguageDetector) // detect user language
@@ -22,17 +22,17 @@ i18n
       caches: [],
       convertDetectedLanguage: (lang) => {
         if (typeof window !== "undefined") {
-          const storedLang = localStorage.getItem(languageKey);
+          const storedLang = localStorage.getItem(LANGUAGE_KEY);
           if (storedLang && storedLang !== "system") {
             return storedLang;
           }
         }
-        const languageMap: Record<string, string> = {
+        const LANGUAGE_MAP: Record<string, string> = {
           "zh-HK": "zh-Hant",
           "zh-TW": "zh-Hant",
         };
         // apply map first
-        if (languageMap[lang]) return languageMap[lang];
+        if (LANGUAGE_MAP[lang]) return LANGUAGE_MAP[lang];
         // simplify language code: en-AU -> en
         return lang.split("-")[0];
       },
