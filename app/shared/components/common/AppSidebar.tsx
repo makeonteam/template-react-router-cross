@@ -75,7 +75,7 @@ function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
             <EllipsisIcon /> <span className="sr-only">Setting</span>
           </SidebarGroupAction>
           <SidebarGroupContent>
-            <SidebarMenu className="gap-[1px]">
+            <SidebarMenu className="gap-px">
               {sidebarApps.map((app) => {
                 const Icon = app.icon;
                 return (
@@ -102,7 +102,7 @@ function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
             </SidebarGroupAction>
           </div>
           <SidebarGroupContent className="overflow-y-auto px-2 py-0">
-            <SidebarMenu className="gap-[1px]">
+            <SidebarMenu className="gap-px">
               {mockTabs.map((_, index) => {
                 const tab = {
                   id: index,

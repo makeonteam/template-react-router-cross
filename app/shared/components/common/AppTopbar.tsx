@@ -28,7 +28,7 @@ function BackwardAndForward({ variant = "normal", ...props }: React.ComponentPro
   // normal to show (put it in sidebar), smart to hide when sidebar is open (put it in main page)
   if (variant === "normal" || (variant === "smart" && !open)) {
     return (
-      <div className="flex gap-[1px]" {...props}>
+      <div className="flex gap-px" {...props}>
         <Button variant="ghost" size="icon-sm" onClick={() => navigate(-1)}>
           <ArrowLeftIcon className="size-4.5" /> <span className="sr-only">{tMain("common.action.backward")}</span>
         </Button>

@@ -40,7 +40,7 @@ export default function LanguageSwitcher() {
           <span className="sr-only">{tMain("common.settings.toggle-language")}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="start" className="flex flex-col gap-[1px]">
+      <DropdownMenuContent align="start" className="flex flex-col gap-px">
         {LANGUAGES.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
