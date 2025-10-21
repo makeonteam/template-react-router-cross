@@ -10,18 +10,18 @@ import {
 import { Button } from "@components/shadcn/ui/button";
 import { convertDetectedLanguage, LANGUAGE_KEY } from "@utils/init/i18n";
 
-const LANGUAGES = [
-  { code: "system", label: "System" },
-  { code: "en", label: "English" },
-  { code: "zh", label: "中文" },
-  { code: "zh-Hant", label: "繁體中文" },
-  // add more languages here
-];
-
 export default function LanguageSwitcher() {
   const { i18n } = useTranslation();
   const { t: tMain } = useTranslation("main");
   const storedLang = localStorage.getItem(LANGUAGE_KEY) || "system";
+
+  const LANGUAGES = [
+    { code: "system", label: tMain("common.settings.language.system") },
+    { code: "en", label: "English" },
+    { code: "zh", label: "中文" },
+    { code: "zh-Hant", label: "繁體中文" },
+    // add more languages here
+  ];
 
   const handleChangeLanguage = (lang: string) => {
     if (lang === "system") {
@@ -37,7 +37,7 @@ export default function LanguageSwitcher() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon-sm">
           <GlobeIcon className="size-[17px]" />
-          <span className="sr-only">{tMain("common.settings.toggle-language")}</span>
+          <span className="sr-only">{tMain("common.settings.language.title")}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="flex flex-col gap-px">
