@@ -35,9 +35,7 @@ function ThemeProvider({ children, themeKey = "theme" }: ThemeProviderProps) {
 
   const setTheme = (theme: Theme) => {
     setThemeState(theme);
-    if (typeof window !== "undefined") {
-      localStorage.setItem(themeKey, theme);
-    }
+    localStorage.setItem(themeKey, theme);
   };
 
   useEffect(() => {
