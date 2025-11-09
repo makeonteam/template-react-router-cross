@@ -1,11 +1,10 @@
-"use client";
 import { useEffect } from "react";
-import { useTheme } from "next-themes";
+import { useTheme } from "@hooks/common/ThemeProvider";
 import { SafeArea } from "@capacitor-community/safe-area";
 
 export function SafeAreaInitializer() {
-  const { resolvedTheme } = useTheme();
-  const reversedTheme = resolvedTheme === "light" ? "dark" : "light";
+  const { theme } = useTheme();
+  const reversedTheme = theme === "light" ? "dark" : "light";
 
   // if theme changes, then status bar changes
   useEffect(() => {
@@ -18,7 +17,7 @@ export function SafeAreaInitializer() {
         // navigationBarContent: "light",
       },
     });
-  }, [resolvedTheme]);
+  }, [theme]);
 
   return null; // this component doesn't render anything
 }
