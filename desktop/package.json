@@ -6,7 +6,7 @@
   "main": "src/main.js",
   "scripts": {
     "dev": "NODE_ENV=development electron .",
-    "sync": "rm -rf app && cp -r -l ../out app",
+    "sync": "rm -rf app && cp -r -l ../build/client app",
     "start": "electron .",
     "package": "electron-builder"
   },
