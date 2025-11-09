@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Cross</string>
+    <string name="title_activity_main">Cross</string>
+    <string name="package_name">app.makeon.cross_mobile</string>
+    <string name="custom_url_scheme">app.makeon.cross_mobile</string>
+</resources>
